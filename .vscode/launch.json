@@ -1,0 +1,91 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Web",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/LQ.Basic.Web/bin/Debug/net6.0/LQ.Basic.Web.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/LQ.Basic.Web",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "HttpApi",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/LQ.Basic.HttpApi.Host/bin/Debug/net6.0/LQ.Basic.HttpApi.Host.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/LQ.Basic.HttpApi.Host",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "AuthServer",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/LQ.Basic.AuthServer/bin/Debug/net6.0/LQ.Basic.AuthServer.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/LQ.Basic.AuthServer",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+
+        {
+            "name": "DbMigrator",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/LQ.Basic.DbMigrator/bin/Debug/net6.0/LQ.Basic.DbMigrator.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/LQ.Basic.DbMigrator",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Compound",
+            "configurations": ["AuthServer","HttpApi","Web"],
+           "presentation": {
+            "hidden": false,
+            "group": "",
+            "order": 1
+           }
+        }
+    ]
+}
