@@ -73,7 +73,8 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
             OpenIddictConstants.Permissions.Scopes.Phone,
             OpenIddictConstants.Permissions.Scopes.Profile,
             OpenIddictConstants.Permissions.Scopes.Roles,
-            "Basic"
+            "Basic",
+            "WeChat"
         };
 
         var configurationSection = _configuration.GetSection("OpenIddict:Applications");
@@ -242,6 +243,31 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
                 scopes: commonScopes,
                 redirectUri: $"{swaggerRootUrl}/swagger/oauth2-redirect.html",
                 clientUri: swaggerRootUrl
+            );
+        }
+        //Web Client
+        var MapWebClientId = configurationSection["Basic_Map:ClientId"];
+        if (!MapWebClientId.IsNullOrWhiteSpace())
+        {
+            var webClientRootUrl = configurationSection["Basic_Map:RootUrl"].EnsureEndsWith('/');
+
+            /* BookStore_Web client is only needed if you created a tiered
+             * solution. Otherwise, you can delete this client. */
+            await CreateApplicationAsync(
+                name: MapWebClientId,
+                type: OpenIddictConstants.ClientTypes.Confidential,
+                consentType: OpenIddictConstants.ConsentTypes.Implicit,
+                displayName: "Map Application",
+                secret: configurationSection["Basic_Map:ClientSecret"] ?? "1q2w3e*",
+                grantTypes: new List<string> //Hybrid flow
+                {
+                    OpenIddictConstants.GrantTypes.AuthorizationCode,
+                    OpenIddictConstants.GrantTypes.Implicit
+                },
+                scopes: commonScopes,
+                redirectUri: $"{webClientRootUrl}signin-oidc",
+                clientUri: webClientRootUrl,
+                postLogoutRedirectUri: $"{webClientRootUrl}signout-callback-oidc"
             );
         }
 

@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\modules\account\src\Volo.Abp.Account.Application.Contracts\Volo.Abp.Account.Application.Contracts.csproj" />
-    <ProjectReference Include="..\..\modules\Acme.BookStore\src\Acme.BookStore.Application.Contracts\Acme.BookStore.Application.Contracts.csproj" />
     <ProjectReference Include="..\..\modules\identity\src\Volo.Abp.Identity.Application.Contracts\Volo.Abp.Identity.Application.Contracts.csproj" />
     <ProjectReference Include="..\LQ.Basic.Domain.Shared\LQ.Basic.Domain.Shared.csproj" />
   </ItemGroup>

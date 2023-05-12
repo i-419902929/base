@@ -17,7 +17,7 @@ public class BasicDbContextFactory : IDesignTimeDbContextFactory<BasicDbContext>
         var configuration = BuildConfiguration();
 
         var builder = new DbContextOptionsBuilder<BasicDbContext>()
-            .UseNpgsql(configuration.GetConnectionString("Default"));
+            .UseSqlServer(configuration.GetConnectionString("Default"));
 
         return new BasicDbContext(builder.Options);
     }

@@ -21,14 +21,9 @@
         <abp-script src="/Pages/Account/Login.js" />
     </abp-script-bundle>
 }
-<body style="background-color:red">
-
-
-
-
-<div style="background-color:aqua" class="card mt-3 shadow-sm rounded" >
+<div class="card mt-3 shadow-sm rounded">
     <div class="card-body p-5">
-        <h4>@L["Login"]</h4>      
+        <h4>@L["Login"]</h4>
         @if (Model.EnableLocalLogin)
         {
             <form method="post" class="mt-4">
@@ -51,7 +46,7 @@
                         <abp-input asp-for="LoginInput.RememberMe" class="mb-4" />
                     </abp-column>
                     <abp-column class="text-end">
-                      
+
                     </abp-column>
                 </abp-row>
                 <div class="d-grid gap-2">
@@ -78,4 +73,3 @@
         }
     </div>
 </div>
-</body>

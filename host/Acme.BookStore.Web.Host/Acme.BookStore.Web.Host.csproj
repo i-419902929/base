@@ -28,7 +28,6 @@
     <ProjectReference Include="..\..\modules\Acme.BookStore\src\Acme.BookStore.HttpApi.Client\Acme.BookStore.HttpApi.Client.csproj" />
     <ProjectReference Include="..\..\modules\Acme.BookStore\src\Acme.BookStore.HttpApi\Acme.BookStore.HttpApi.csproj" />
     <ProjectReference Include="..\..\themes\LQ.Abp.AspNetCore.Mvc.UI.Theme.AdminLTE\LQ.Abp.AspNetCore.Mvc.UI.Theme.AdminLTE.csproj" />
-    <ProjectReference Include="..\Acme.BookStore.Host.Shared\Acme.BookStore.Host.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

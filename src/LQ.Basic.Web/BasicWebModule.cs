@@ -5,9 +5,11 @@ using LQ.Basic.MultiTenancy;
 using LQ.Basic.Web.Menus;
 using Medallion.Threading;
 using Medallion.Threading.Redis;
+using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -134,10 +136,10 @@ public class BasicWebModule : AbpModule
     private void ConfigureAuthentication(ServiceConfigurationContext context, IConfiguration configuration)
     {
         context.Services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = "Cookies";
-                options.DefaultChallengeScheme = "oidc";
-            })
+        {
+            options.DefaultScheme = "Cookies";
+            options.DefaultChallengeScheme = "oidc";
+        })
             .AddCookie("Cookies", options =>
             {
                 options.ExpireTimeSpan = TimeSpan.FromDays(365);
@@ -160,6 +162,7 @@ public class BasicWebModule : AbpModule
                 options.Scope.Add("phone");
                 options.Scope.Add("Basic");
             });
+
     }
 
     private void ConfigureAutoMapper()
@@ -220,7 +223,7 @@ public class BasicWebModule : AbpModule
             dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "Basic-Protection-Keys");
         }
     }
-    
+
     private void ConfigureDistributedLocking(
         ServiceConfigurationContext context,
         IConfiguration configuration)

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>LQ.Map</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LQ.Map.Domain\LQ.Map.Domain.csproj" />
+    <ProjectReference Include="..\LQ.Map.Application.Contracts\LQ.Map.Application.Contracts.csproj" />    
+  </ItemGroup>
+
+  <ItemGroup>   
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="6.0.0" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>
