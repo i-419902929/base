@@ -3,6 +3,7 @@ using LQ.Abp.AspNetCore.Mvc.UI.Theme.AdminLTE.Bundling;
 using LQ.Map.EntityFrameworkCore;
 using LQ.Map.Localization;
 using LQ.Map.MultiTenancy;
+using LQ.Map.Web.Components.Toolbar.LoginLink;
 using LQ.Map.Web.Menus;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,8 +20,10 @@ using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.Client;
 using Volo.Abp.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
+using Volo.Abp.AspNetCore.Mvc.UI.Components.LayoutHook;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.Toolbars;
+using Volo.Abp.AspNetCore.Mvc.UI.Theming;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
@@ -28,7 +31,6 @@ using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.DistributedLocking;
 using Volo.Abp.Http.Client.IdentityModel.Web;
 using Volo.Abp.Http.Client.Web;
-using Volo.Abp.Identity.Web;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
@@ -41,10 +43,8 @@ namespace LQ.Map.Web;
 [DependsOn(
     typeof(MapHttpApiModule),
     typeof(MapApplicationModule),
-    typeof(MapEntityFrameworkCoreModule),
-
+    typeof(MapEntityFrameworkCoreModule), 
    
-    //typeof(AbpIdentityWebModule),
     typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule),
     typeof(AbpAspNetCoreMvcClientModule),
     typeof(AbpHttpClientWebModule),
@@ -87,7 +87,8 @@ public class MapWebModule : AbpModule
         ConfigureLocalizationServices();
         ConfigureNavigationServices(configuration);
         ConfigureAutoApiControllers();
-        ConfigureSwaggerServices(context.Services); 
+        ConfigureSwaggerServices(context.Services);
+      
     }
 
     private void ConfigureAuthentication(ServiceConfigurationContext context, IConfiguration configuration)
@@ -131,8 +132,16 @@ public class MapWebModule : AbpModule
                 bundle =>
                 {
                     bundle.AddFiles("/global-styles.css");
+                    bundle.AddFiles("/Build/CesiumUnminified/Widgets/widgets.css");
                 }
             );
+            options.ScriptBundles.Configure(
+               AdminLTEThemeBundles.Scripts.Global,
+               bundle =>
+               {
+                   bundle.AddFiles("/Build/CesiumUnminified/Cesium.js");
+               }
+           );
         });
     }
 

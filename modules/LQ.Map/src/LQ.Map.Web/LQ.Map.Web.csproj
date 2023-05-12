@@ -35,9 +35,8 @@
     <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\themes\LQ.Abp.AspNetCore.Mvc.UI.Theme.AdminLTE\LQ.Abp.AspNetCore.Mvc.UI.Theme.AdminLTE.csproj" />
-  
-    <ProjectReference Include="..\..\..\identity\src\Volo.Abp.Identity.Web\Volo.Abp.Identity.Web.csproj" />
+    <ProjectReference Include="..\..\..\..\themes\LQ.Abp.AspNetCore.Mvc.UI.Theme.AdminLTE\LQ.Abp.AspNetCore.Mvc.UI.Theme.AdminLTE.csproj" />  
+   
     <ProjectReference Include="..\LQ.Map.Application\LQ.Map.Application.csproj" />
     <ProjectReference Include="..\LQ.Map.HttpApi\LQ.Map.HttpApi.csproj" />
     <ProjectReference Include="..\LQ.Map.EntityFrameworkCore\LQ.Map.EntityFrameworkCore.csproj" />
