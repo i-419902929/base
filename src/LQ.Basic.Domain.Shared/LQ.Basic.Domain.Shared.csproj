@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
 
@@ -8,10 +8,8 @@
     <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
   </PropertyGroup>
 
-  <ItemGroup>
-    <!--<PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="6.0.0" />-->
-    <PackageReference Include="Volo.Abp.BackgroundJobs.Domain.Shared" Version="6.0.0" />
-    <PackageReference Include="Volo.Abp.AuditLogging.Domain.Shared" Version="6.0.0" />
+  <ItemGroup>   
+    <PackageReference Include="Volo.Abp.BackgroundJobs.Domain.Shared" Version="6.0.0" />   
     <PackageReference Include="Volo.Abp.TenantManagement.Domain.Shared" Version="6.0.0" />
     <PackageReference Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="6.0.0" />
     <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="6.0.0" />
@@ -29,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\modules\audit-logging\src\Volo.Abp.AuditLogging.Domain.Shared\Volo.Abp.AuditLogging.Domain.Shared.csproj" />
     <ProjectReference Include="..\..\modules\identity\src\Volo.Abp.Identity.Domain.Shared\Volo.Abp.Identity.Domain.Shared.csproj" />
   </ItemGroup>
 

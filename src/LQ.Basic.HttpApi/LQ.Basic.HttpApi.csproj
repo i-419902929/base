@@ -9,13 +9,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\modules\account\src\Volo.Abp.Account.HttpApi\Volo.Abp.Account.HttpApi.csproj" />
+    <ProjectReference Include="..\..\modules\audit-logging\src\Volo.Abp.AuditLogging.HttpApi\Volo.Abp.AuditLogging.HttpApi.csproj" />
     <ProjectReference Include="..\..\modules\identity\src\Volo.Abp.Identity.HttpApi\Volo.Abp.Identity.HttpApi.csproj" />
     <ProjectReference Include="..\LQ.Basic.Application.Contracts\LQ.Basic.Application.Contracts.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <!--<PackageReference Include="Volo.Abp.Account.HttpApi" Version="6.0.0" />
-    <PackageReference Include="Volo.Abp.Identity.HttpApi" Version="6.0.0" />-->
+  <ItemGroup>   
     <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" Version="6.0.0" />
     <PackageReference Include="Volo.Abp.TenantManagement.HttpApi" Version="6.0.0" />
     <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi" Version="6.0.0" />

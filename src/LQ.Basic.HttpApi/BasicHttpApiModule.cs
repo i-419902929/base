@@ -1,6 +1,7 @@
 ﻿using Localization.Resources.AbpUi;
 using LQ.Basic.Localization;
 using Volo.Abp.Account;
+using Volo.Abp.AuditLogging;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
 using Volo.Abp.Localization;
@@ -18,7 +19,8 @@ namespace LQ.Basic;
     typeof(AbpPermissionManagementHttpApiModule),
     typeof(AbpTenantManagementHttpApiModule),
     typeof(AbpFeatureManagementHttpApiModule),
-    typeof(AbpSettingManagementHttpApiModule)
+    typeof(AbpSettingManagementHttpApiModule),
+    typeof(AuditLoggingHttpApiModule)
     )]
 public class BasicHttpApiModule : AbpModule
 {

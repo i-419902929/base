@@ -227,10 +227,8 @@ public class HangfireModule : AbpModule
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
-        }
-
-        app.UseAbpRequestLocalization();
-
+        } 
+        app.UseAbpRequestLocalization(options => options.SetDefaultCulture("zh-Hans"));
         if (!env.IsDevelopment())
         {
             app.UseErrorPage();

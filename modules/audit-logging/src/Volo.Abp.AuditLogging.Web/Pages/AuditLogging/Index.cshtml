@@ -1,0 +1,25 @@
+﻿@page
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.AuditLogging.Localization
+@using Volo.Abp.AuditLogging.Web.Pages.AuditLogging
+@model Volo.Abp.AuditLogging.Web.Pages.AuditLogging.IndexModel
+@inject IStringLocalizer<AuditLoggingResource> L
+
+@section scripts
+    {
+    <abp-script src="/Pages/AuditLogging/Index.js" />
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["AuditLogs"]</abp-card-title>
+            </abp-column>       
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="AuditLogTable"></abp-table>
+    </abp-card-body>
+</abp-card>
+

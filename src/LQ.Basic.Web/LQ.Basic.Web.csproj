@@ -32,6 +32,7 @@
     <PackageReference Include="Volo.Abp.Swashbuckle" Version="6.0.0" />
     <PackageReference Include="Volo.Abp.TenantManagement.Web" Version="6.0.0" />
     <PackageReference Include="Volo.Abp.SettingManagement.Web" Version="6.0.0" />
+    <ProjectReference Include="..\..\modules\audit-logging\src\Volo.Abp.AuditLogging.Web\Volo.Abp.AuditLogging.Web.csproj" />
     <ProjectReference Include="..\..\modules\identity\src\Volo.Abp.Identity.Web\Volo.Abp.Identity.Web.csproj" />
     <ProjectReference Include="..\..\themes\LQ.Abp.AspNetCore.Mvc.UI.Theme.AdminLTE\LQ.Abp.AspNetCore.Mvc.UI.Theme.AdminLTE.csproj" />
     <ProjectReference Include="..\LQ.Basic.HttpApi.Client\LQ.Basic.HttpApi.Client.csproj" />

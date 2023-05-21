@@ -6,7 +6,6 @@ namespace LQ.Map;
 [DependsOn(
     typeof(MapDomainModule), 
     typeof(MapApplicationContractsModule)
-   
     )]
 public class MapApplicationModule : AbpModule
 {

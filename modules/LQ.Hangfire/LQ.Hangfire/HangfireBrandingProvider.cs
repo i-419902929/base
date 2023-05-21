@@ -6,5 +6,5 @@ namespace LQ.Hangfire;
 [Dependency(ReplaceServices = true)]
 public class HangfireBrandingProvider : DefaultBrandingProvider
 {
-    public override string AppName => "Hangfire";
+    public override string AppName => "定时任务";
 }

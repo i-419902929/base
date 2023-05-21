@@ -43,8 +43,7 @@ namespace LQ.Map.Web;
 [DependsOn(
     typeof(MapHttpApiModule),
     typeof(MapApplicationModule),
-    typeof(MapEntityFrameworkCoreModule), 
-   
+    typeof(MapEntityFrameworkCoreModule),    
     typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule),
     typeof(AbpAspNetCoreMvcClientModule),
     typeof(AbpHttpClientWebModule),

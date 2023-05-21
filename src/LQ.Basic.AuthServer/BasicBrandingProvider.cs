@@ -6,5 +6,5 @@ namespace LQ.Basic;
 [Dependency(ReplaceServices = true)]
 public class BasicBrandingProvider : DefaultBrandingProvider
 {
-    public override string AppName => "Basic";
+    public override string AppName => "统一登录平台";
 }
